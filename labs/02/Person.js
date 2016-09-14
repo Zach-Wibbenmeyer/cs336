@@ -42,3 +42,4 @@ Student.prototype.outputGreeting = function () {
 Student.prototype = Object.create(Person.prototype);
 
 var grantStubelt = new Student("Grant Stubelt", 22, "February 22, 1994", "Film");
+var josiahStucki = new Student("Josiah Stucki", 22, "August 16, 1994", "Kineseology");
