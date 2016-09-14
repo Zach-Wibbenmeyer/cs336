@@ -25,7 +25,7 @@ var calebPostma = new Person("Caleb Postma", 21, "December 12, 1994");
 zachWibbenmeyer.addFriend(calebPostma);
 
 if (zachWibbenmeyer.age > calebPostma.age) {
-    console.log("Zach is older than Caleb!");
+    console.log("Zach is older than Caleb");
 } else {
     console.log("Caleb is older than Zach");
 }
