@@ -1,16 +1,16 @@
 /***************************************
-Zach Wibbenmeyer
-CS336
-Keith Vanderlinden
-Lab02
+*** Zach Wibbenmeyer                 ***
+*** CS336                            ***
+*** Keith Vanderlinden               ***
+*** Lab02                            ***
+*** September 14, 2016               ***
 ****************************************/
 
 /* Person() - creates a person object prototype
  * @param: name, age, birthdate
  */
-function Person(name, age, birthDate) {
+function Person(name, birthDate) {
     this.name = name;
-    this.age = age;
     this.birthDate = birthDate;
     this.friends = [];
     this.greeting = "I'm a person!";
@@ -51,11 +51,10 @@ Person.prototype.getAge = function(dateString) {
 /* Student() - creates a student object prototype
  * @param: subject
  */
-function Student(name, age, birthDate, subject) {
+function Student(name, birthDate, major) {
     this.name = name;
-    this.age = age;
     this.birthDate = birthDate;
-    this.subject = subject;
+    this.major = major;
     this.greeting = "I'm a student!";
 }
 
@@ -66,15 +65,18 @@ Student.prototype = Object.create(Person.prototype);
 /****************************MAIN CODE ******************************************************/
 
 // create two Person object prototype instances
-var zachWibbenmeyer = new Person("Zach Wibbenmeyer", 22, "July 11, 1994");
-var calebPostma = new Person("Caleb Postma", 21, "December 12, 1994");
+var zachWibbenmeyer = new Person("Zach Wibbenmeyer", "1994/07/11");
+var calebPostma = new Person("Caleb Postma", "1994/12/12");
 
 
 //add Caleb as a friend
 zachWibbenmeyer.addFriend(calebPostma);
 
 // calculate Zach's age
-console.log(zachWibbenmeyer.getAge("1994/07/11"));
+console.log(zachWibbenmeyer.getAge(zachWibbenmeyer.birthDate));
+
+// calculate Caleb's age
+console.log(calebPostma.getAge(calebPostma.birthDate));
 
 // print a greeting
 zachWibbenmeyer.printGreeting();
@@ -86,36 +88,56 @@ console.log(calebPostma.name);
 // print Zach's name
 console.log(zachWibbenmeyer.name);
 
+// create variables to store ages
+var ageOfZach = zachWibbenmeyer.getAge(zachWibbenmeyer.birthDate);
+var ageOfCaleb = calebPostma.getAge(calebPostma.birthDate);
 
 // Compare the age between Zach and Caleb
-if (zachWibbenmeyer.age > calebPostma.age) {
-
+if (ageOfZach > ageOfCaleb) {
     console.log("Zach is older than Caleb");
-
 } else {
-
     console.log("Caleb is older than Zach");
-
 }
 
 
 // create two student object prototypes
-var grantStubelt = new Student("Grant Stubelt", 22, "February 22, 1994", "Film");
-var josiahStucki = new Student("Josiah Stucki", 22, "August 16, 1994", "Kineseology");
-var jahnDavis = new Student("Jahn Davis", 21, "March 15, 1995", "Computer Science");
+var grantStubelt = new Student("Grant Stubelt", "1994/02/22", "Film");
+var josiahStucki = new Student("Josiah Stucki", "1994/08/16", "Kineseology");
+var jahnDavis = new Student("Jahn Davis", "1995/03/15", "Computer Science");
 
 // print Jahn's subject
-console.log(jahnDavis.subject);
+console.log(jahnDavis.major);
 
 // print a greeting
 grantStubelt.printGreeting();
 
+// create variables to store ages
+var ageOfGrant = grantStubelt.getAge(grantStubelt.birthDate);
+var ageOfJahn = jahnDavis.getAge(jahnDavis.birthDate);
+
 // compare ages between Grant and Jahn
-if (grantStubelt.age > jahnDavis.age) {
-	console.log("Grant is older than Jahn");
+if (ageOfGrant > ageOfJahn) {
+    console.log("Grant is older than Jahn");
 } else {
-	console.log("Jahn is older than Grant");
+    console.log("Jahn is older than Grant");
 }
+
+if (jahnDavis.major == "Computer Science") {
+    console.log("Awesome!");
+} else {
+    console.log("Aww....");
+}
+
+
+// Change Jahn's name
+jahnDavis.changeName("Dahn Javis");
+console.log(jahnDavis.name);
 
 // See if Grant is an instance of student
 console.log(grantStubelt instanceof Student);
+
+// See is Zach is an instance of Person
+console.log(zachWibbenmeyer instanceof Person);
+
+// See if Zach is an instance of Student
+console.log(zachWibbenmeyer instanceof Student);
