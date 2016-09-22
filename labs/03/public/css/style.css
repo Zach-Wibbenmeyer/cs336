@@ -1,8 +1,14 @@
 .aceVentura {
 	width: 25%;
-	height: 25%;	
+	height: 25%;
+	position: relative;
+	left: 30px;
 }
 
 h1 {
 	color: red;
+}
+
+.listElement {
+	font-weight: bold;
 }
