@@ -1,4 +1,9 @@
-
+/***********************************
+ * app.js - basic server express app
+ * CS336, Web Development
+ * Instructor: Keith Vanderlinden
+ * Author: Zach Wibbenmeyer
+ ***********************************/
 
 var express = require('express');
 var app = express();
