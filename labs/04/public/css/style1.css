@@ -54,6 +54,7 @@ li.lowerRoman {
 
 li.numbered {
   list-style-type: none;
+  text-align: left;
 }
 
 li {
