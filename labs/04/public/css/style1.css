@@ -32,11 +32,11 @@ strong {
 }
 
 html {
-	background: url("Blue-rule.png");
+	background: url("/images/Blue-rule.png");
 }
 
 #paragraph:before {
-	content: url("Yellow-pin.png");
+	content: url("/images/Yellow-pin.png");
 }
 
 /* numbered paragraphs */
@@ -48,12 +48,19 @@ p.numbered:before {
   font-weight: bold;
 }
 
-li {
+li.lowerRoman {
   list-style: lower-roman;
+}
+
+li.numbered {
+  list-style-type: none;
+}
+
+li {
   margin-bottom: 8px;
 }
 
-h3:before {
+li.numbered:before {
   content: "(" counter(headnum, upper-latin) ") ";
   counter-increment: headnum;
 }
@@ -64,7 +71,7 @@ h3 {
 
 ul {
   border: 10px solid lightblue;
-  width: 100px;
+  width: 150px;
 }
 
 /*** Style for doc3.html (Tables) ***/
