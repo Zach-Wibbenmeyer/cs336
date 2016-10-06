@@ -1,0 +1,92 @@
+/***************************************
+CS336 - Web Development
+Professor: Keith Vanderlinden
+Author: Zach Wibbenmeyer
+Due Date: October 7, 2016
+****************************************/
+
+body  
+    background: #999999 
+ 
+
+#main  
+    min-height: 800px 
+    margin: 0px 
+    padding: 0px 
+    display: flex 
+    flex-flow: row 
+ 
+ 
+#main > article  
+    padding: 5px 
+    /* set the border color to be black */ 
+    border: 1px solid #000000 
+    background: #dddd88 
+    flex: 3 1 60% 
+    order: 2 
+ 
+
+#main > nav  
+    padding: 5px 
+    /* set the border color to be black */ 
+    border: 1px solid #000000 
+    background: #ccccff
+    flex: 1 6 20% 
+    order: 1 
+    text-align: right 
+ 
+  
+#main > aside  
+    padding: 5px
+    /* set the border color to be black */ 
+    border: 1px solid #000000 
+    background: #ccccff
+    flex: 1 6 20% 
+    order: 3
+
+header, footer  
+    display: block 
+	padding: 5px 
+    min-height: 100px 
+    /* set the border color to be black */ 
+    border: 1px solid #000000 
+    background: #ffeebb 
+ 
+/* change the fonts for the different sections */
+header  
+    font: 24px Helvetica 
+ 
+
+nav  
+    font-family: "Times New Roman", Times, serif 
+ 
+
+article  
+    font-family: "Comic Sans MS", cursive 
+ 
+
+aside  
+    font-family: "Courier New", Courier, monospace 
+ 
+
+footer  
+    font-family: Georgia, Serif 
+ 
+ 
+/* Too narrow to support three columns */
+@media all and (max-width: 640px)  
+    #main, #page  
+        flex-direction: column 
+     
+
+    #main > article, #main > nav, #main > aside  
+    /* Return them to document order */
+	    order: 0 
+     
+  
+    #main > nav, #main > aside, header, footer  
+        min-height: 50px 
+        max-height: 50px 
+        text-align: left 
+     
+ 
