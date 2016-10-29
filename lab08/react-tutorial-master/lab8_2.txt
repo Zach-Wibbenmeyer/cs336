@@ -1,0 +1,15 @@
+1. A composable UI means that the components that make up the UI are modular, which makes reading and changing the front-end code easier to do.
+
+2. JSX transforms its syntax into readable JavaScript.
+
+3. Comments work as a hierarchy, where comments further up will pass data down to their children.
+
+4. Props are immutable since they are passed and owned by the parent. States are what allow interaction, so they are mutable.
+
+5. The browser updated to display the change I made in the comments.json. The CommentsBox constantly updates to check for changes made in comments.json.
+
+6. Because state does not change when you add a comment, so CommentList does not need to be updated.
+
+7. If the state of the component doesn't match the view, it is not representative of the data behind, which can make debugging extremely hard.
+
+8. Since an ID is generated for each comment, I am guessing that, if the server rejects the comment, it will be erased before it is displayed.
