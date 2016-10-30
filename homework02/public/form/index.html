@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Homework 02</title>
+    <script src="jquery.js"></script>
+</head>
+
+
+<body>
+	<form method="post">
+	    <div>
+	        <label for="person_id">Login ID:</label>
+	        <input type="text" id="person_id" name="person_id" required>
+	    </div>
+	    <div>
+	        <button type="submit">Send</button>
+	    </div>
+	</form>
+
+	<script>
+		$( 'form' ).submit(function( event ) {
+			event.preventDefault();
+			var form = $( this );
+			$.ajax({
+				type: 'POST',
+			    url: '/form',
+			    data: form.serialize(),
+			    dataType: 'json',
+			    success: function( resp ) {
+			    	console.log( resp.response );
+        			$('body').append('<div>' + resp.content + '</div');
+			    }
+			});
+		});
+	</script>
+
+</body>
+</html>
