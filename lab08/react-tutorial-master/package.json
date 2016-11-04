@@ -1,23 +1,16 @@
 {
-  "name": "react-tutorial",
-  "version": "0.0.0",
-  "description": "Code from the React tutorial.",
+  "name": "react-tutorial-master",
+  "version": "1.0.0",
+  "description": "[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)",
   "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Zach Wibbenmeyer",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "kill $(pgrep node) ; nodemon --ignore public/ server.js &",
-    "stop": "kill $(pgrep node)"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/reactjs/react-tutorial.git"
-  },
-  "author": "petehunt" "zdw3",
-  "bugs": {
-    "url": "https://github.com/reactjs/react-tutorial/issues"
   }
 }
