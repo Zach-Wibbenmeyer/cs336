@@ -13,7 +13,7 @@
  /* CS336 - Web Development, Lab8
   * Professor: Keith Vanderlinden
   * Author: Zach Wibbenmeyer
-  * Date: October 29, 2016
+  * Date: November 4, 2016
   */
 
 var fs = require('fs');
