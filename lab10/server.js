@@ -10,10 +10,10 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
- /* CS336 - Web Development, Lab8
+ /* CS336 - Web Development, Lab10
   * Professor: Keith Vanderlinden
   * Author: Zach Wibbenmeyer
-  * Date: October 29, 2016
+  * Date: November 11, 2016
   */
 
 var fs = require('fs');
