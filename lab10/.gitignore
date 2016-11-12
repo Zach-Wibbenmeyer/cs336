@@ -1,0 +1,14 @@
+*~
+node_modules
+.DS_Store
+dist
+lab8_2.txt
+app.json
+LICENSE
+README.md
+requirements.txt
+server.go
+server.php
+server.pl
+server.py
+server.rb
