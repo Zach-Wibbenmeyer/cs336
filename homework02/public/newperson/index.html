@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Create a new person</title>
+    </head>
+    <body>
+      <form action="/newperson" method="post">
+          <div>
+              <label for="id">ID:</label>
+              <input type="text" id="id" name="input_id" />
+          </div>
+          <div>
+              <label for="fname">First name:</label>
+              <input type="text" id="fname" name="input_fname" />
+          </div>
+          <div>
+              <label for="lname">Last name:</label>
+              <input type="text" id="lname" name="input_lname" />
+          </div>
+          <div>
+              <label for="date">Start date:</label>
+              <input type="Date" id="date" name="input_date" />
+          </div>
+
+          <div class="button">
+              <button type="submit">Create new person</button>
+          </div>
+      </form>
+      <script>
+        $( 'form' ).submit(function( event ) {
+          event.preventDefault();
+          var form = $( this );
+          $.ajax({
+            type: 'POST',
+            url: '/newperson',
+            //pass form data, serialized
+            data: form.serialize(),
+            dataType: 'json',
+            success: function( resp ) {
+              console.log( resp );
+            }
+          });
+        });
+      </script>
+    </body>
+</html>

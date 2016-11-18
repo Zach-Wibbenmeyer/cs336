@@ -19,6 +19,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
+// Create an object prototype for a Person
 function Person(firstName, lastName, loginID, startDate) {
 	this.firstName = firstName;
 	this.lastName = lastName;
@@ -30,6 +31,7 @@ var personOne = new Person("Zach", "Wibbenmeyer", 314, "07/11/1994");
 var personTwo = new Person("Caleb", "Postma", 616, "12/12/1994");
 var personThree = new Person("Jenny", "Bullis", 410, "02/27/1996");
 
+// push objects to Array
 var peopleObjects = new Array();
 peopleObjects.push(personOne);
 peopleObjects.push(personTwo);
@@ -41,10 +43,18 @@ app.get('/people', function(req, res) {
 	res.json(peopleObjects);
 });
 
+app.post('/people', function(req,res) {
+	console.log(req.body);
+	//var person = new Person(req.body.input_fname, req.body.input_lname, req.body.input_id, req.body.input_date);
+  var person = new Person(req.body.firstName, req.body.lastName, req.body.loginID, req.body.startDate);
+	peopleObjects.push(person);
+});
+
+
 /* getPerson() - function for mathing up the ID to a person
  * @param: ID (type -> req param)
  * @return: an array of an object
- * Precondition: the ID must match up to one of the ID's stored in the 
+ * Precondition: the ID must match up to one of the ID's stored in the
  				peopleObjects array
  */
 var getPerson = function(ID) {
@@ -56,7 +66,7 @@ var getPerson = function(ID) {
 
 	return 0;
 }
- 
+
 /* getNames() - function for matching up a name to the ID of a people object
  * @param: ID (type -> req param)
  * @return: a string containing the name
@@ -152,16 +162,28 @@ app.get('/person/:id/years', function(req, res) {
 	}
 });
 
-app.post('/form', function(req, res) {
-	var person = new Person();
-	person = getPerson(req.body.loginID);
-	var response = "First Name: " + person.firstName + "\n"
-					+ "Last Name: " + person.lastName + "\n"
-					+ "Login ID: " + person.loginID + "\n"
-					+ "Start Date: " + person.startDate;
-	res.send({"content": response});
+// adds a new person to personObjects
+app.post('/newperson', function(req, res) {
+    var person = new Person(req.body.input_fname, req.body.input_lname, req.body.input_id, req.body.input_date);
+    peopleObjects.push(person);
+    res.send('Submitted form info<br>ID: <code>' + req.body.input_id
+    + '</code><br>First name: <code>' + req.body.input_fname
+    + '</code><br>Last name: <code>' + req.body.input_lname
+    + '</code><br>Here since: <code>'+ req.body.input_date + '</code>');
 });
 
+// Displays a person object, searched by their ID, passed from the form at search/index.html through $ajax()
+app.post("/search", function(req, res) {
+    var person = new Person();
+    person = getPerson(req.body.name);
+    var response = "First Name: " + person.firstName +
+             '\n' + "Last Name: " + person.lastName +
+             '\n' + "Login ID: " + person.loginID +
+             '\n' + "Start Date: " + person.startDate;
+    res.send({"content": response});
+});
+
+// listen on port 3000
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });

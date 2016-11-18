@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="//code.jquery.com/jquery-latest.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="jquery.js"></script>
+
+    </head>
+    <body>
+      <h2>Search for person by ID:</h2>
+      <form action="/search" method="post">
+          <div>
+              <label for="id">ID: </label>
+              <input type="text" id="id" name="search_id" />
+          </div>
+          <div class="button">
+              <button type="submit">Search</button>
+          </div>
+      </form>
+      <script>
+      $(document).ready(function() {
+        $( 'form' ).submit(function( event ) {
+          $( "p" ).remove();
+          event.preventDefault();
+          //console.log("clicked search!")
+            $.ajax({
+                url: "/search",
+                type: "post",
+                //send the user input as JSON-formatted data with key 'name'
+                data: { name:  $( "#id" ).val()}
+            })
+            .done(function( result ) {
+              // Append result.content (created in the server) to the body
+               $("body").append("<p> " + result.content + "</p>");
+            })
+            .fail(function(xhr, status, errorThrown) {
+                console.log('AJAX request failed...');
+                $("body").append("<p> no data yet... </p>");
+             })
+          });
+        });
+      </script>
+    </body>
+</html>
